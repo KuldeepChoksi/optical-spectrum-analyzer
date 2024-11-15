@@ -176,16 +176,16 @@ class SpectrumVisualizer:
             logger.info(f"Saved plot to {self.output_dir / save_path}")
         
         return fig
-    
+
     def plot_material_comparison(
         self,
         df: pd.DataFrame,
         materials: Optional[List[str]] = None,
-        title: str = "Material Transmission Comparison",
+        title: str = "Optical Material Transmission Comparison",
         save_path: Optional[str] = None
     ) -> plt.Figure:
         """
-        Compare transmission spectra of different materials.
+        Compare transmission spectra of different materials with DISTINCT colors.
         
         Args:
             df: DataFrame with wavelength_nm, transmission_percent, material_type
@@ -201,40 +201,62 @@ class SpectrumVisualizer:
         if materials is None:
             materials = df['material_type'].unique()
         
+        # FIXED: Distinct color mapping for each material
+        DISTINCT_COLORS = {
+            'Borosilicate Crown Glass (N-BK7)': '#1f77b4',  # Blue
+            'Soda-Lime Glass': '#ff7f0e',                    # Orange  
+            'Crystalline Quartz': '#2ca02c',                 # Green
+            'Calcium Fluoride (CaF₂)': '#d62728',           # Red
+            'Zinc Selenide (ZnSe)': '#9467bd',              # Purple
+            'PMMA (Acrylic)': '#8c564b',                    # Brown
+            'Sapphire (α-Al₂O₃)': '#e377c2',                # Pink
+            'Fused Silica (SiO₂)': '#7f7f7f',               # Grey
+        }
+        
+        # Fallback colors if we have more materials
+        FALLBACK_COLORS = ['#17becf', '#bcbd22', '#1a9850', '#91bfdb', '#fc8d59']
+        
         # Show spectral regions
         for region_name, region_info in SPECTRAL_REGIONS.items():
             wl_min, wl_max = region_info['range']
             ax.axvspan(wl_min, wl_max, color=region_info['color'], 
-                      alpha=region_info['alpha'], label=region_name)
+                    alpha=region_info['alpha'], label=region_name)
         
-        # Plot average spectrum for each material
+        # Plot average spectrum for each material with DISTINCT colors
+        color_idx = 0
         for material in materials:
             mat_df = df[df['material_type'] == material]
             
             # Group by wavelength and calculate mean
             avg_spectrum = mat_df.groupby('wavelength_nm')['transmission_percent'].mean()
             
-            # Get color
-            color = '#7f7f7f'
-            for key, mat_color in MATERIAL_COLORS.items():
-                if key in material.lower():
-                    color = mat_color
-                    break
+            # Get DISTINCT color for this material
+            if material in DISTINCT_COLORS:
+                color = DISTINCT_COLORS[material]
+            else:
+                # Use fallback colors for unknown materials
+                color = FALLBACK_COLORS[color_idx % len(FALLBACK_COLORS)]
+                color_idx += 1
             
+            # Plot with thicker line and distinct color
             ax.plot(avg_spectrum.index, avg_spectrum.values, 
-                   color=color, linewidth=2, label=material)
+                color=color, linewidth=2.5, label=material, alpha=0.9)
         
-        ax.set_xlabel('Wavelength (nm)')
-        ax.set_ylabel('Transmission (%)')
-        ax.set_title(title)
+        ax.set_xlabel('Wavelength (nm)', fontsize=12)
+        ax.set_ylabel('Transmission (%)', fontsize=12)
+        ax.set_title(title, fontsize=14, fontweight='bold')
         ax.set_ylim(0, 105)
-        ax.legend(loc='lower right', ncol=2)
+        ax.set_xlim(200, 3000)
+        
+        # Put legend outside plot area for clarity
+        ax.legend(loc='center left', bbox_to_anchor=(1, 0.5), 
+                fontsize=10, framealpha=0.9)
         ax.grid(True, alpha=0.3)
         
         plt.tight_layout()
         
         if save_path:
-            fig.savefig(self.output_dir / save_path)
+            fig.savefig(self.output_dir / save_path, bbox_inches='tight')
             logger.info(f"Saved comparison plot to {self.output_dir / save_path}")
         
         return fig

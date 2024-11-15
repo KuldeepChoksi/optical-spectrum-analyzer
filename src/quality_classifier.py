@@ -201,20 +201,47 @@ class QualityClassifier:
         # Total bandwidth
         return wavelength[indices[-1]] - wavelength[indices[0]]
     
+
     def _detect_defects(
         self,
         wavelength: np.ndarray,
         transmission: np.ndarray
     ) -> List[float]:
         """
-        Detect defects as sudden drops in transmission.
+        Detect REAL defects (scratches, bubbles, impurities) as sudden drops 
+        in HIGH-TRANSMISSION regions only.
+        
+        FIXED: Ignores natural material cutoffs at UV/IR edges.
         
         Returns wavelength locations of detected defects.
         """
         defect_locations = []
         
-        # Calculate first derivative (transmission gradient)
-        gradient = np.gradient(transmission, wavelength)
+        # CRITICAL FIX: Only look for defects in the STABLE transmission region
+        # Define "good transmission" region: 400-2000nm where most materials are stable
+        stable_mask = (wavelength >= 400) & (wavelength <= 2000)
+        
+        if not stable_mask.any():
+            return defect_locations  # No stable region to analyze
+        
+        stable_wavelength = wavelength[stable_mask]
+        stable_transmission = transmission[stable_mask]
+        
+        # Also ignore regions where transmission is already very low (< 30%)
+        # These are absorption regions, not defects
+        high_trans_mask = stable_transmission > 30
+        
+        if not high_trans_mask.any():
+            return defect_locations
+        
+        analysis_wavelength = stable_wavelength[high_trans_mask]
+        analysis_transmission = stable_transmission[high_trans_mask]
+        
+        if len(analysis_transmission) < 10:
+            return defect_locations  # Not enough data
+        
+        # Calculate first derivative (transmission gradient) 
+        gradient = np.gradient(analysis_transmission, analysis_wavelength)
         
         # Smooth to reduce noise
         window = min(5, len(gradient) // 10)
@@ -224,7 +251,8 @@ class QualityClassifier:
         else:
             gradient_smooth = gradient
         
-        # Detect sharp drops (negative gradients)
+        # FIXED: Only detect SHARP, LOCALIZED drops
+        # Real defects cause drops of >5% over <50nm
         sharp_drops = np.where(gradient_smooth < -self.DEFECT_GRADIENT_THRESHOLD)[0]
         
         # Cluster nearby detections
@@ -233,31 +261,62 @@ class QualityClassifier:
             current_cluster = [sharp_drops[0]]
             
             for i in range(1, len(sharp_drops)):
-                if sharp_drops[i] - sharp_drops[i-1] < 10:  # Within 10 points
+                # If within 50nm of previous point, same cluster
+                if analysis_wavelength[sharp_drops[i]] - analysis_wavelength[sharp_drops[i-1]] < 50:
                     current_cluster.append(sharp_drops[i])
                 else:
                     clusters.append(current_cluster)
                     current_cluster = [sharp_drops[i]]
             clusters.append(current_cluster)
             
-            # Get center of each cluster
+            # Validate each cluster as a real defect
             for cluster in clusters:
+                if len(cluster) < 3:  # Too small, probably noise
+                    continue
+                
                 center_idx = cluster[len(cluster)//2]
-                defect_locations.append(float(wavelength[center_idx]))
+                defect_wl = analysis_wavelength[center_idx]
+                defect_trans = analysis_transmission[center_idx]
+                
+                # Check if this is a LOCALIZED dip (not a broad absorption edge)
+                # Look at ±50nm window
+                window_mask = np.abs(analysis_wavelength - defect_wl) < 50
+                window_trans = analysis_transmission[window_mask]
+                
+                if len(window_trans) < 3:
+                    continue
+                
+                # Real defect: transmission drops and recovers
+                trans_before = np.mean(analysis_transmission[analysis_wavelength < defect_wl - 50][-10:]) if np.any(analysis_wavelength < defect_wl - 50) else defect_trans
+                trans_after = np.mean(analysis_transmission[analysis_wavelength > defect_wl + 50][:10]) if np.any(analysis_wavelength > defect_wl + 50) else defect_trans
+                
+                # Both sides should be significantly higher (>10% higher)
+                if (trans_before - defect_trans > 10) and (trans_after - defect_trans > 10):
+                    defect_locations.append(float(defect_wl))
         
-        # Also detect localized absorption bands
-        # (sudden dip and recovery)
-        local_mean = np.convolve(transmission, np.ones(20)/20, mode='same')
-        deviation = transmission - local_mean
-        
-        absorption_bands = np.where(deviation < -self.DEFECT_DROP_THRESHOLD * 100)[0]
-        
-        # Add unique locations
-        for idx in absorption_bands:
-            wl = wavelength[idx]
-            # Check if not already detected
-            if not any(abs(wl - loc) < 50 for loc in defect_locations):
-                defect_locations.append(float(wl))
+        # ADDITIONAL: Detect absorption bands (impurities like Fe³⁺)
+        # These show as Gaussian-like dips in otherwise flat regions
+        if len(analysis_transmission) > 20:
+            # Calculate local baseline (moving average over 200nm)
+            window_size = min(100, len(analysis_transmission) // 5)
+            if window_size > 5:
+                baseline = np.convolve(
+                    analysis_transmission, 
+                    np.ones(window_size)/window_size, 
+                    mode='same'
+                )
+                deviation = analysis_transmission - baseline
+                
+                # Find significant negative deviations
+                absorption_bands = np.where(deviation < -15)[0]  # >15% below baseline
+                
+                # Add unique locations not already detected
+                for idx in absorption_bands:
+                    wl = analysis_wavelength[idx]
+                    if not any(abs(wl - loc) < 100 for loc in defect_locations):
+                        # Verify it's a localized absorption, not edge effect
+                        if 500 < wl < 1800:  # Well within stable region
+                            defect_locations.append(float(wl))
         
         return sorted(defect_locations)
     

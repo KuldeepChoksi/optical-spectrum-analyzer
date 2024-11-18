@@ -380,7 +380,7 @@ Examples:
   python src/spectrum_analyzer.py --generate --samples 20
 ```
 
----
+
 
 ## Roadmap
 

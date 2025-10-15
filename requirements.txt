@@ -1,0 +1,26 @@
+# Optical Spectrum Analyzer - Python Dependencies
+# Install with: pip install -r requirements.txt
+
+# Core Scientific Computing
+numpy>=1.21.0
+pandas>=1.3.0
+scipy>=1.7.0
+
+# Visualization
+matplotlib>=3.4.0
+seaborn>=0.11.0
+
+# Data Validation
+pydantic>=1.8.0
+
+# Utilities
+pathlib2>=2.3.0;python_version<"3.4"
+tqdm>=4.60.0
+
+# Optional: Jupyter Support
+jupyter>=1.0.0
+ipywidgets>=7.6.0
+
+# Optional: Testing
+pytest>=6.2.0
+pytest-cov>=2.12.0

@@ -332,16 +332,7 @@ class QualityClassifier:
             return QualityGrade.POOR
     
     def analyze_dataframe(self, df: pd.DataFrame) -> pd.DataFrame:
-        """
-        Analyze all samples in a DataFrame.
         
-        Args:
-            df: DataFrame with wavelength_nm, transmission_percent, 
-                sample_id, material_type columns
-                
-        Returns:
-            DataFrame with quality metrics for each sample
-        """
         results = []
         
         sample_col = 'sample_id' if 'sample_id' in df.columns else None

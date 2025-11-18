@@ -176,7 +176,6 @@ class SpectrumVisualizer:
             logger.info(f"Saved plot to {self.output_dir / save_path}")
         
         return fig
-
     def plot_material_comparison(
         self,
         df: pd.DataFrame,

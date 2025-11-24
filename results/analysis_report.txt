@@ -1,0 +1,53 @@
+
+============================================================
+OPTICAL SPECTRUM ANALYZER - SUMMARY REPORT
+============================================================
+
+--- DATASET OVERVIEW ---
+Total samples analyzed: 80
+Material types: 8
+  • Sapphire (α-Al₂O₃): 10 samples
+  • Fused Silica (SiO₂): 10 samples
+  • Borosilicate Crown Glass (N-BK7): 10 samples
+  • Soda-Lime Glass: 10 samples
+  • Crystalline Quartz: 10 samples
+  • Calcium Fluoride (CaF₂): 10 samples
+  • Zinc Selenide (ZnSe): 10 samples
+  • PMMA (Acrylic): 10 samples
+
+--- QUALITY GRADE DISTRIBUTION ---
+  Excellent : ░░░░░░░░░░░░░░░░░░░░   0 (  0.0%)
+  Good      : █████████████░░░░░░░  52 ( 65.0%)
+  Fair      : ███░░░░░░░░░░░░░░░░░  15 ( 18.8%)
+  Poor      : ███░░░░░░░░░░░░░░░░░  13 ( 16.2%)
+
+--- QC PASS/FAIL SUMMARY ---
+  PASS: 49 samples (61.3%)
+  FAIL: 31 samples (38.7%)
+
+--- DEFECT ANALYSIS ---
+  Samples with defects: 4 (5.0%)
+  Total defects detected: 4
+  Avg defects per sample: 0.05
+
+--- TRANSMISSION STATISTICS BY MATERIAL ---
+  Material                         Avg T%   Min T%   Max T%
+  ----------------------------------------------------------
+  Sapphire (α-Al₂O₃)                76.2%    62.6%    79.2%
+  Fused Silica (SiO₂)               86.2%    78.4%    87.1%
+  Borosilicate Crown Glass (N-..    84.3%    84.1%    84.3%
+  Soda-Lime Glass                   81.0%    79.7%    81.3%
+  Crystalline Quartz                82.5%    71.4%    84.8%
+  Calcium Fluoride (CaF₂)           86.3%    70.5%    89.1%
+  Zinc Selenide (ZnSe)              25.3%    23.3%    26.8%
+  PMMA (Acrylic)                    80.9%    69.4%    84.5%
+
+--- RECOMMENDATIONS ---
+  • Review failed samples for root cause analysis
+  • Investigate defect sources (contamination, handling, process)
+  • Materials requiring attention: Sapphire (α-Al₂, Fused Silica (S, Soda-Lime Glass, Crystalline Qua, Calcium Fluorid, Zinc Selenide (, PMMA (Acrylic)
+  ⚠ Quality requires immediate attention
+
+============================================================
+END OF REPORT
+============================================================

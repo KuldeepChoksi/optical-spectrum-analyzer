@@ -1,0 +1,81 @@
+sample_id,material_type,peak_transmission_pct,avg_visible_transmission_pct,transmission_bandwidth_nm,uniformity_score,defect_count,quality_grade,pass_qc,notes
+sapphire_0000,Sapphire (α-Al₂O₃),82.69455579177786,78.99775513036684,2068.0,98.79397423153128,0,Fair,False,Below transmission threshold (79.0% < 80.0%)
+sapphire_0001,Sapphire (α-Al₂O₃),82.60164513447208,79.06695685027418,2198.0,98.7699616851729,0,Fair,False,Below transmission threshold (79.1% < 80.0%)
+sapphire_0002,Sapphire (α-Al₂O₃),73.92598592418723,66.67065284632743,0.0,94.4209466086434,0,Poor,False,Below transmission threshold (66.7% < 80.0%)
+sapphire_0003,Sapphire (α-Al₂O₃),81.01899594676489,79.08618242576104,1854.0,99.50480652976691,0,Fair,False,Below transmission threshold (79.1% < 80.0%)
+sapphire_0004,Sapphire (α-Al₂O₃),81.17872529070064,78.99557890845897,1734.0,99.52934771171273,0,Fair,False,Below transmission threshold (79.0% < 80.0%)
+sapphire_0005,Sapphire (α-Al₂O₃),81.0816718484957,79.12084157707415,2004.0,99.50806585690525,0,Fair,False,Below transmission threshold (79.1% < 80.0%)
+sapphire_0006,Sapphire (α-Al₂O₃),81.06118343742023,79.16295150617644,1888.0,99.55416944952734,0,Fair,False,Below transmission threshold (79.2% < 80.0%)
+sapphire_0007,Sapphire (α-Al₂O₃),82.10697477155564,79.04415024661624,2018.0,99.24570019302556,0,Fair,False,Below transmission threshold (79.0% < 80.0%)
+sapphire_0008,Sapphire (α-Al₂O₃),82.45306896747046,78.96554050754153,2126.0,98.89036155021724,0,Fair,False,Below transmission threshold (79.0% < 80.0%)
+sapphire_0009,Sapphire (α-Al₂O₃),65.36620497363367,62.63803466308675,0.0,98.90683423984234,0,Poor,False,Below transmission threshold (62.6% < 80.0%)
+fused_silica_0010,Fused Silica (SiO₂),88.99303861267543,86.99263600246059,2296.0,99.46858086714218,0,Good,True,
+fused_silica_0011,Fused Silica (SiO₂),89.85627608802457,86.9294102964182,2300.0,99.19611471193117,0,Good,True,
+fused_silica_0012,Fused Silica (SiO₂),89.99158859712172,86.92964675148036,2298.0,98.94328412972962,0,Good,True,
+fused_silica_0013,Fused Silica (SiO₂),88.54895729016935,87.03121089211001,2294.0,99.56118436806939,0,Good,True,
+fused_silica_0014,Fused Silica (SiO₂),80.67837817108865,78.35595314876583,1934.0,99.27547863326409,0,Fair,False,Below transmission threshold (78.4% < 80.0%)
+fused_silica_0015,Fused Silica (SiO₂),89.1242739551539,87.06957637189345,2292.0,99.33594643396448,0,Good,True,
+fused_silica_0016,Fused Silica (SiO₂),90.15800808097065,87.08218194688929,2296.0,98.97963279474389,0,Good,True,
+fused_silica_0017,Fused Silica (SiO₂),89.7212261932601,87.11393840461585,2292.0,99.19617473201595,0,Good,True,
+fused_silica_0018,Fused Silica (SiO₂),88.84997820935341,86.99418046276861,2294.0,99.43163634532921,0,Good,True,
+fused_silica_0019,Fused Silica (SiO₂),90.12646716028112,87.0493601025719,2298.0,98.99736968377937,0,Good,True,
+borosilicate_bk7_0020,Borosilicate Crown Glass (N-BK7),85.76676293482348,84.23307238969393,2076.0,99.62266160363976,0,Good,True,
+borosilicate_bk7_0021,Borosilicate Crown Glass (N-BK7),86.12461502957257,84.29094753436966,2136.0,99.5331068925654,0,Good,True,
+borosilicate_bk7_0022,Borosilicate Crown Glass (N-BK7),87.81131534722232,84.30973095559716,2044.0,98.89579581689634,0,Good,True,
+borosilicate_bk7_0023,Borosilicate Crown Glass (N-BK7),87.746204155696,84.22166936545258,2094.0,98.87925266791504,0,Good,True,
+borosilicate_bk7_0024,Borosilicate Crown Glass (N-BK7),87.4256187464213,84.16466885905713,2092.0,98.79373067840004,0,Good,True,
+borosilicate_bk7_0025,Borosilicate Crown Glass (N-BK7),86.49157523020128,84.26063391261299,2132.0,99.34377391893068,0,Good,True,
+borosilicate_bk7_0026,Borosilicate Crown Glass (N-BK7),86.360368262267,84.31885477738332,2144.0,99.26756133646347,0,Good,True,
+borosilicate_bk7_0027,Borosilicate Crown Glass (N-BK7),86.47590807091836,84.28385612241577,2146.0,99.3621184496898,0,Good,True,
+borosilicate_bk7_0028,Borosilicate Crown Glass (N-BK7),85.88627432299899,84.32509752337346,2144.0,99.51353785488901,0,Good,True,
+borosilicate_bk7_0029,Borosilicate Crown Glass (N-BK7),87.68457050059234,84.12500670146002,2044.0,99.11595349007598,0,Good,True,
+soda_lime_0030,Soda-Lime Glass,83.81120575908946,80.89958665154506,1682.0,98.89316385402672,0,Good,True,
+soda_lime_0031,Soda-Lime Glass,83.2262746028474,81.33815689674,1808.0,99.29841587179973,0,Good,True,
+soda_lime_0032,Soda-Lime Glass,82.69219298578668,81.24829182846238,1756.0,99.37777061948144,0,Good,True,
+soda_lime_0033,Soda-Lime Glass,83.05914550273566,79.73879008494563,1556.0,96.12354583770653,0,Fair,False,Below transmission threshold (79.7% < 80.0%)
+soda_lime_0034,Soda-Lime Glass,83.24877431831126,81.1969913834582,1710.0,99.14376852131461,0,Good,True,
+soda_lime_0035,Soda-Lime Glass,83.25220872428267,80.89680813063222,1650.0,99.00524000596869,1,Good,False,Detected 1 potential defects; Failed due to detected defects
+soda_lime_0036,Soda-Lime Glass,82.33715131870919,81.11846744472221,1662.0,99.48884828828731,0,Good,True,
+soda_lime_0037,Soda-Lime Glass,83.16740113617911,80.97273688570081,1680.0,99.00049549014932,0,Good,True,
+soda_lime_0038,Soda-Lime Glass,82.53253047642247,81.01685580979483,1678.0,99.52296329308521,0,Good,True,
+soda_lime_0039,Soda-Lime Glass,83.96136174329341,81.24039057991092,1762.0,98.99169392831045,1,Good,False,Detected 1 potential defects; Failed due to detected defects
+quartz_crystalline_0040,Crystalline Quartz,87.21774290811743,84.59082068021837,2300.0,98.86938555532834,0,Good,True,
+quartz_crystalline_0041,Crystalline Quartz,87.20774231619626,84.59247467813717,2300.0,99.14090933647333,0,Good,True,
+quartz_crystalline_0042,Crystalline Quartz,85.69298909498993,84.57641863037209,2294.0,99.5600764202314,0,Good,True,
+quartz_crystalline_0043,Crystalline Quartz,86.53722406085943,84.55005331065705,2288.0,99.28899851247938,0,Good,True,
+quartz_crystalline_0044,Crystalline Quartz,79.6069228154833,71.37619941736055,0.0,94.29026098555963,0,Fair,False,Below transmission threshold (71.4% < 80.0%)
+quartz_crystalline_0045,Crystalline Quartz,87.4877947821366,84.65752331393185,2300.0,98.9364349009224,0,Good,True,
+quartz_crystalline_0046,Crystalline Quartz,85.87154719460163,84.64541695619658,2296.0,99.5070772442045,0,Good,True,
+quartz_crystalline_0047,Crystalline Quartz,87.32097322644239,84.6643653046143,2296.0,98.90722697139533,0,Good,True,
+quartz_crystalline_0048,Crystalline Quartz,87.10152345513735,84.7984383825485,2300.0,99.25356080115199,0,Good,True,
+quartz_crystalline_0049,Crystalline Quartz,78.04827475257477,76.22284178605851,0.0,99.37326924493568,0,Fair,False,Below transmission threshold (76.2% < 80.0%)
+calcium_fluoride_0050,Calcium Fluoride (CaF₂),82.10272364295369,80.16283485126377,2262.0,99.31375873038805,0,Good,True,
+calcium_fluoride_0051,Calcium Fluoride (CaF₂),91.81916909118448,89.00285039637916,2300.0,99.03325672658572,0,Good,True,
+calcium_fluoride_0052,Calcium Fluoride (CaF₂),91.23096707368947,89.03522138362656,2300.0,99.4089494143628,0,Good,True,
+calcium_fluoride_0053,Calcium Fluoride (CaF₂),71.84651737140871,70.49929992725956,0.0,99.39376721657709,0,Fair,False,Below transmission threshold (70.5% < 80.0%)
+calcium_fluoride_0054,Calcium Fluoride (CaF₂),92.39521654794106,88.97343915746224,2300.0,98.94405391705607,0,Good,True,
+calcium_fluoride_0055,Calcium Fluoride (CaF₂),92.32625889819839,88.96646935312091,2300.0,98.91334064014895,0,Good,True,
+calcium_fluoride_0056,Calcium Fluoride (CaF₂),90.34049563724527,89.00303586680545,2300.0,99.54755839782702,0,Good,True,
+calcium_fluoride_0057,Calcium Fluoride (CaF₂),90.3138516721396,89.01035449258957,2300.0,99.56980791174395,0,Good,True,
+calcium_fluoride_0058,Calcium Fluoride (CaF₂),91.92100265130387,88.9112559889561,2300.0,99.14201697261437,0,Good,True,
+calcium_fluoride_0059,Calcium Fluoride (CaF₂),91.07587067549267,89.09139751464913,2300.0,99.31970899056766,0,Good,True,
+zinc_selenide_0060,Zinc Selenide (ZnSe),42.79561339220923,23.282924509264646,0.0,23.32486887031203,0,Poor,False,Below transmission threshold (23.3% < 80.0%)
+zinc_selenide_0061,Zinc Selenide (ZnSe),48.216071229033695,26.493042239791944,0.0,25.580432976943946,0,Poor,False,Below transmission threshold (26.5% < 80.0%)
+zinc_selenide_0062,Zinc Selenide (ZnSe),47.29844048507535,25.03598060443652,0.0,20.135672570024056,1,Poor,False,Detected 1 potential defects; Below transmission threshold (25.0% < 80.0%); Failed due to detected defects
+zinc_selenide_0063,Zinc Selenide (ZnSe),41.395574231918076,25.541857831128976,0.0,32.26360811860317,0,Poor,False,Below transmission threshold (25.5% < 80.0%)
+zinc_selenide_0064,Zinc Selenide (ZnSe),45.62189734598824,25.030136245012056,0.0,20.026357055834975,0,Poor,False,Below transmission threshold (25.0% < 80.0%)
+zinc_selenide_0065,Zinc Selenide (ZnSe),47.162834138699786,26.76239425199601,0.0,26.538910846151786,0,Poor,False,Below transmission threshold (26.8% < 80.0%)
+zinc_selenide_0066,Zinc Selenide (ZnSe),47.3226618534197,23.67548180556634,0.0,19.578649032241525,0,Poor,False,Below transmission threshold (23.7% < 80.0%)
+zinc_selenide_0067,Zinc Selenide (ZnSe),46.95671457274931,25.50035092558638,0.0,22.23542669076516,0,Poor,False,Below transmission threshold (25.5% < 80.0%)
+zinc_selenide_0068,Zinc Selenide (ZnSe),45.788379545744,26.250678576375815,0.0,24.605555383425003,0,Poor,False,Below transmission threshold (26.3% < 80.0%)
+zinc_selenide_0069,Zinc Selenide (ZnSe),46.43118007177053,25.314206552010422,0.0,20.86581874000526,0,Poor,False,Below transmission threshold (25.3% < 80.0%)
+pmma_0070,PMMA (Acrylic),86.81024188862048,83.7898546849914,1700.0,98.06552116543178,0,Good,True,
+pmma_0071,PMMA (Acrylic),85.76623389170102,83.86173873151222,1720.0,98.51332366118774,0,Good,True,
+pmma_0072,PMMA (Acrylic),85.53613570965815,83.06690007672044,1754.0,95.46689253264626,0,Good,True,
+pmma_0073,PMMA (Acrylic),86.35220457195851,83.92140602139503,1708.0,98.22172858889334,0,Good,True,
+pmma_0074,PMMA (Acrylic),85.48255669975622,83.66946857361587,1690.0,98.28509056042559,0,Good,True,
+pmma_0075,PMMA (Acrylic),84.92959257772942,76.11207197594756,1488.0,93.9654224782232,0,Fair,False,Below transmission threshold (76.1% < 80.0%)
+pmma_0076,PMMA (Acrylic),86.8779269481168,84.54908932860563,1836.0,99.13128016676137,1,Good,False,Detected 1 potential defects; Failed due to detected defects
+pmma_0077,PMMA (Acrylic),85.75112221944853,76.2773875536552,1518.0,94.16738360606371,0,Fair,False,Below transmission threshold (76.3% < 80.0%)
+pmma_0078,PMMA (Acrylic),75.82758747767248,69.35051333359732,0.0,94.6652812229311,0,Poor,False,Below transmission threshold (69.4% < 80.0%)
+pmma_0079,PMMA (Acrylic),85.63656508025939,84.3290391802518,1782.0,99.08139114542625,0,Good,True,
